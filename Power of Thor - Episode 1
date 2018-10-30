@@ -1,0 +1,45 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ * ---
+ * Hint: You can use the debug stream to print initialTX and initialTY, if Thor seems not follow your orders.
+ **/
+class Player {
+
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int lightX = in.nextInt(); // the X position of the light of power
+        int lightY = in.nextInt(); // the Y position of the light of power
+        int initialTX = in.nextInt(); // Thor's starting X position
+        int initialTY = in.nextInt(); // Thor's starting Y position
+
+        // game loop
+        while (true) {
+            int remainingTurns = in.nextInt(); // The remaining amount of turns Thor can move. Do not remove this line.
+            int y = 0;
+            int x = 0;
+            //move up - North
+            if(lightY < initialTY){ y = -1; }
+            //move down - South
+            if(lightY > initialTY){ y = 1; }
+            //move right - East
+            if(lightX > initialTX){ x = 1; }
+            //move left - West
+            if(lightX < initialTX){ x = -1; }
+        
+            if(y < 0 && x < 0){ System.out.println("NW"); initialTX--;initialTY--; }
+            else if(y < 0 && x > 0){System.out.println("NE"); initialTY--;initialTX++; }
+            else if(y > 0 && x < 0){System.out.println("SW"); initialTY++;initialTX--; }
+            else if(y > 0 && x > 0){System.out.println("SE"); initialTY++;initialTX++; }
+            else if(y > 0){System.out.println("S"); initialTY++; }
+            else if(y < 0){System.out.println("N"); initialTY--; }
+            else if(x > 0){System.out.println("E"); initialTX++; }
+            else if(x < 0){ System.out.println("W"); initialTX--; }
+
+        }
+    }
+}
