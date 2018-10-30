@@ -1,0 +1,50 @@
+import java.util.*;
+import java.io.*;
+ 
+class Solution
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        PrintWriter out = new PrintWriter(System.out);
+ 
+        short Lwidth = in.nextShort(), Lheight = in.nextShort();
+        Map alphabet = new HashMap();
+        
+        if (in.hasNextLine())
+        {
+            in.nextLine();
+        }
+        
+        String Text = in.nextLine();
+ 
+        for (short h = 0; h < Lheight; ++h)
+        {
+            String alphabet_line = in.nextLine();
+            short i = 0;
+            
+            for(char sym = 'a', Sym = 'A'; sym <= 'z'; ++sym, ++Sym, ++i)
+            {
+                String letter = alphabet_line.substring(i*Lwidth, (i+1)*Lwidth);
+                alphabet.put(sym, letter);
+                alphabet.put(Sym, letter);
+            }
+            alphabet.put('?', alphabet_line.substring(i*Lwidth, (i+1)*Lwidth));
+            
+            for(i = 0; i < Text.length(); ++i)
+            {
+                if //it is a letter
+                (
+                    (('a' <= Text.charAt(i)) && (Text.charAt(i) <= 'z')) ||
+                    (('A' <= Text.charAt(i)) && (Text.charAt(i) <= 'Z'))
+                )
+                    out.print(alphabet.get(Text.charAt(i)));
+                else //it is definitely something weird
+                    out.print(alphabet.get('?'));
+            }
+            out.print('\n');
+        }
+ 
+        out.flush();
+    }
+}
