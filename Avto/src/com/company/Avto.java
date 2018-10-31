@@ -65,4 +65,9 @@ public class Avto {
     public void beep() {
         System.out.println("BEEEEEEEEEEEP");
     }
+
+    public void info() {
+        System.out.println(getAvto() + " " + getYear() +  " " + getColor() + " " + getSpeed());
+
+    }
 }

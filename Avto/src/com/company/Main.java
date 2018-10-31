@@ -10,13 +10,13 @@ public class Main {
 
         Avto redPorsche = new Avto("Porsche",2018, "Red", 250);
 
-        System.out.println(blackBummer.getAvto() + " " + blackBummer.getYear() +  " " + blackBummer.getColor() + " " + blackBummer.getSpeed());
+        blackBummer.info();
         blackBummer.right(); blackBummer.back();
 
-        System.out.println(whiteAudio.getAvto() + " " + whiteAudio.getYear() +  " " + whiteAudio.getColor() + " " + whiteAudio.getSpeed());
+        whiteAudio.info();
         whiteAudio.left();
 
-        System.out.println(redPorsche.getAvto() + " " + redPorsche.getYear() +  " " + redPorsche.getColor() + " " + redPorsche.getSpeed());
+        redPorsche.info();
         redPorsche.forward(); redPorsche.beep();
 
     }
