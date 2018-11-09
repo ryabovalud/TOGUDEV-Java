@@ -1,12 +1,16 @@
 package com.company;
 
+import java.util.logging.Logger;
+
 public class Avto {
     private String AvtoModel;
     private int yearOfIssue;
     private String colorOfAvto;
     private int maxSpeed;
+    private static Logger log = Logger.getLogger(Avto.class.getName());
 
     public Avto(String model,int year,String color,int speed){
+        log.info("Конструктор Avto");
         this.AvtoModel = model;
         this.yearOfIssue = year;
         this.colorOfAvto = color;
@@ -69,5 +73,30 @@ public class Avto {
     public void info() {
         System.out.println(getAvto() + " " + getYear() +  " " + getColor() + " " + getSpeed());
 
+    }
+
+    public boolean equals(Avto avto)
+    {
+        if(avto == this)
+            return true;
+
+        if(avto == null){
+            return false;
+        }
+
+        /* Удостоверимся, что ссылки имеют тот же самый тип */
+
+        if(!(getClass() == avto.getClass())){
+            return false;
+        }
+
+        else
+        {
+            if(avto.AvtoModel == this.AvtoModel && avto.yearOfIssue == this.yearOfIssue &&
+                    avto.colorOfAvto == this.colorOfAvto && avto.maxSpeed == this.maxSpeed)
+                return true;
+            else
+                return false;
+        }
     }
 }
